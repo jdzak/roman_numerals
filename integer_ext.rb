@@ -5,13 +5,17 @@ class Integer
   def to_roman
     number = self
     roman = ''
-    while(number > 0)
+    while (number > 0)
       AVAILABLE_NUMBERS.each do |available|
-        if number % available == 0
+        puts "#{number} % #{available}.zero?: #{(number % available).zero?}"
+        if (number % available).zero?
+          
           roman << ROMAN_EQUIVALENTS[available]
           number -= available
+          break
         end
       end
+      puts number
     end
     roman
   end  
