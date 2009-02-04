@@ -4,19 +4,17 @@ class Integer
   
   def to_roman
     number = self
-    roman = ''
+    roman_reversed = ''
     while (number > 0)
       AVAILABLE_NUMBERS.each do |available|
-        puts "#{number} % #{available}.zero?: #{(number % available).zero?}"
         if (number % available).zero?
           
-          roman << ROMAN_EQUIVALENTS[available]
+          roman_reversed << ROMAN_EQUIVALENTS[available]
           number -= available
           break
         end
       end
-      puts number
     end
-    roman
+    roman_reversed.reverse    # String is built backwards, therefore we have to reverse it
   end  
 end
